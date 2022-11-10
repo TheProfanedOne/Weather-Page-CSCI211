@@ -1,6 +1,52 @@
 @charset "utf-8";
 
+/* General body styles */
+body {
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
+}
+
+/* Main styles */
+main {
+    width: 700px;
+    height: auto;
+    position: relative;
+    margin: auto;
+}
+
+#dateArea > p {
+    margin-bottom: 2px;
+}
+
+#big-image {
+    width: 100%;
+}
+
+/* Forecast styles */
+#forecast-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.forecast {
+    width: 98%;
+    outline: black solid 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.forecast-contents {
+    width: 100%;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.forecast > img {
+    margin-left: auto;
+    margin-right: auto;
 }
