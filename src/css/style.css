@@ -18,12 +18,38 @@ main {
     margin: auto;
 }
 
-#dateArea > p {
+#topLine::after {
+    clear: both;
+}
+
+#date {
+    margin-top: 3px;
+    margin-bottom: 0;
+    float: left;
+}
+
+#topLine > section {
+    float: right;
+}
+
+#cityForm > fieldset {
+    border: 0;
+    padding: 0;
     margin-bottom: 2px;
+    margin-right: 0;
+}
+
+#topLine > section > * {
+    float: left;
 }
 
 #big-image {
     width: 100%;
+}
+
+#apply {
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 /* Forecast styles */

@@ -5,12 +5,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
-        <script src="js/script.js" type="text/javascript" defer></script>
+        <script src="scripts/topLine.js" type="text/javascript" async></script>
+        <script src="scripts/forecast.js" type="text/javascript" async></script>
+        <script src="scripts/main.js" type="text/javascript" defer></script>
     </head>
-    <body>
-        <h1>CSCI211 - Weather Page</h1>
+    <body style="display: none;">
+        <h1 id="body-title"></h1>
         <main>
-            <div id="dateArea"></div>
+            <div id="topLine">
+                <p id="date"></p>
+                <section>
+                    <form action="" id="cityForm" method="post"></form>
+                </section>
+            </div>
 
             <img id="big-image"></img>
 
@@ -30,4 +37,3 @@
         </main>
     </body>
 </html>
-
