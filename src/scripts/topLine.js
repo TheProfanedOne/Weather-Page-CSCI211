@@ -42,7 +42,7 @@ function getDateStr(thisDate) {
 
 function showDate(thisDate) {
     const date = document.getElementById('date');
-    date.textContent = `Today is: ${getDateStr(thisDate)}`;
+    date.textContent = `Today is: ${getDateStr(thisDate)} (Local Time)`;
 }
 
 function showCityForm() {
