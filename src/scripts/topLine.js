@@ -1,3 +1,5 @@
+"use strict";
+
 const dayNames = [
     "Sunday", "Monday", "Tuesday", "Wednesday",
     "Thursday", "Friday", "Saturday"
@@ -70,28 +72,13 @@ function showCityForm() {
     apply.setAttribute('id', 'apply');
     apply.setAttribute('type', 'button');
     apply.innerText = 'Apply';
-    apply.addEventListener('click', evt => {
-        const c_form = document.forms.cityForm;
-        const data = new FormData(c_form);
-        const city = cityValues.indexOf(data.get('selected_city'));
-        showForecast(city);
-
-        evt.target.style.backgroundColor = "limegreen";
-        setTimeout(() => evt.target.removeAttribute('style'), 200);
-    });
 
     const refresh = document.createElement('button');
     refresh.setAttribute('id', 'refresh');
     refresh.setAttribute('type', 'button');
     refresh.innerText = 'Refresh';
-    refresh.addEventListener('click', async evt => {
-        const newDate = new Date();
 
-        await genForecastData(newDate); let value = evt.target;
-        apply.dispatchEvent(Object.defineProperty(evt, 'target', { value }));
-    });
-
-    const sect = document.querySelector('#topLine > section');
+    const sect = document.querySelector('#citySect');
     sect.appendChild(apply);
     sect.appendChild(refresh);
 }

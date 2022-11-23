@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+body {
+    background-color: #003131;
+    color: white;
+}
+
+.forecast {
+    border-color: white;
+}

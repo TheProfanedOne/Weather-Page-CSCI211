@@ -4,36 +4,31 @@
         <title>Weather Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-        <script src="scripts/topLine.js" type="text/javascript" async></script>
-        <script src="scripts/forecast.js" type="text/javascript" async></script>
-        <script src="scripts/main.js" type="text/javascript" defer></script>
+        <link rel="stylesheet" href="./css/weather-icons.min.css" type="text/css">
+        <link href="./css/base.css" type="text/css" rel="stylesheet">
+        <script src="./scripts/topLine.js" type="text/javascript" async></script>
+        <script src="./scripts/forecast.js" type="text/javascript" async></script>
+        <script src="./scripts/bottomLine.js" type="text/javascript" async></script>
+        <script src="./scripts/main.js" type="text/javascript"></script>
     </head>
     <body style="display: none;">
         <h1 id="body-title"></h1>
         <main>
             <div id="topLine">
                 <p id="date"></p>
-                <section>
+                <section id="citySect">
                     <form action="" id="cityForm" method="post"></form>
                 </section>
             </div>
 
-            <img id="big-image"></img>
+            <img id="big-image">
 
-            <section id="forecast-container">
-                <section id="day-1" class="forecast"></section>
-                <section id="day-2" class="forecast"></section>
-                <section id="day-3" class="forecast"></section>
-            </section>
-            <aside style='text-align: center; font-size: 0.75em;'>
-                <a href="https://www.freepik.com/free-vector/beautiful-illustration-sunny-landscape_16607912.htm">
-                    Big Image
-                </a> by macrovector on freepik.com<br>
-                <a href="https://iconscout.com/icon/sun-631">Sun Icon</a> by Amedia Utvikling on iconscout.com<br>
-                <a href="https://iconscout.com/icon/rainy-day-1405133">Rain Icon</a> by Latest Icon on iconscout.com<br>
-                <a href="https://iconscout.com/icon/cloudy-weather-11">Clouds Icon</a> by Utawi Studio on iconscout.com
-            </aside>
+            <section id="forecast-container"></section>
+            <div id="bottomLine">
+                <section id="themeSect"></section>
+                <section id="timeSect"></section>
+            </div>
         </main>
+        <a href="./attributions.html" target="_blank">Click Here for Attributions</a>
     </body>
 </html>
