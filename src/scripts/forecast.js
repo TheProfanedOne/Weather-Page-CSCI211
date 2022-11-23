@@ -149,7 +149,7 @@ function genForecasts(city, len) {
         const summ = parseCodeSumm(code[i]);
         if (summ === 'Unrecognized Weathercode') console.debug(code[i]);
         forecasts.push({
-            date: getISODateStr(new Date(time[i] * 1000)),
+            date: `${getISODateStr(new Date(time[i] * 1000))} (${data.timezone_abbreviation})`,
             summ,
             icon: `wi ${parseCodeIcon(code[i])}`,
             temp: `${tMax[i]}${tUnit} / ${tMin[i]}${tUnit}`,

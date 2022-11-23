@@ -42,7 +42,8 @@ function getDateStr(thisDate) {
 
 function showDate(thisDate) {
     const date = document.getElementById('date');
-    date.textContent = `Today is: ${getDateStr(thisDate)} (Local Time)`;
+    const timezone = moment().tz(moment.tz.guess()).zoneAbbr();
+    date.textContent = `Today is: ${getDateStr(thisDate)} (${timezone})`;
 }
 
 function showCityForm() {
