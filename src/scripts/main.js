@@ -6,7 +6,7 @@
     Filename: script.js
 */
 
-var datasets;
+let datasets = [];
 let threeDayForecast = true;
 const threeDayWidth  = 702;
 const fiveDayWidth   = 1170;
@@ -74,7 +74,6 @@ async function init() {
     document.head.appendChild(darkTheme);
     const mainElement = document.querySelector('main');
     mainElement.style.width = `${threeDayWidth}px`;
-    document.getElementById('body-title').innerHTML = 'CSCI-211 &nbsp;&mdash;&nbsp; Weather Page';
     showTopLine(thisDate);
     showForecast(0);
     showBottomLine();

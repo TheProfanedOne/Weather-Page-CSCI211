@@ -157,7 +157,6 @@ function genForecasts(city, len) {
         });
     }
     
-
     return forecasts;
 }
 
