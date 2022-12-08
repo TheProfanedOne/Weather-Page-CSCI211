@@ -7,6 +7,7 @@ use stylist::yew::styled_component;
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
     #[at("/")]
+    #[not_found]
     Home,
     
     #[at("/attributions")]
