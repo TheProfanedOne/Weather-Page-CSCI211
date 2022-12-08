@@ -8,8 +8,7 @@ use stylist::yew::styled_component;
 pub enum Route {
     #[at("/")]
     Home,
-    #[at("/forecast")]
-    Forecast,
+    
     #[at("/attributions")]
     Attributions,
 }
@@ -17,9 +16,6 @@ pub enum Route {
 fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! {
-            <Redirect<Route> to={Route::Forecast}></Redirect<Route>>
-        },
-        Route::Forecast => html! {
             <Forecast />
         },
         Route::Attributions => {
