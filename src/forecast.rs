@@ -31,7 +31,7 @@ pub fn forecast() -> Html {
             .abbreviation().to_string()
     , timezone_str)).clone();
 
-    use_data_refresh(trigger.clone(), city, time);
+    use_data_refresh(trigger.clone(), city, time, &data);
 
     let [app_oncl, ref_oncl] = generate_top_line_callbacks(trigger.clone());
 
