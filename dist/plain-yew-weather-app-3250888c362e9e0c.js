@@ -1003,7 +1003,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('plain-yew-weather-app-85300459bc103881_bg.wasm', import.meta.url);
+        input = new URL('plain-yew-weather-app-3250888c362e9e0c_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

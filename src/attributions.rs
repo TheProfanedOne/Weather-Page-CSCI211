@@ -1,12 +1,12 @@
 use yew::prelude::*;
 use yew_hooks::use_title;
 use yew_router::prelude::*;
-use crate::{app::Route, global_state::{get_global_theme, set_routed_true}};
+use crate::{app::Route, global_state::get_global_theme};
 use stylist::yew::styled_component;
 
 #[styled_component(Attributions)]
 pub fn attributions() -> Html {
-    set_routed_true();
+    // set_routed_true();
 
     let theme = get_global_theme();
     let color1 = if theme { "white" } else { "#003131" };

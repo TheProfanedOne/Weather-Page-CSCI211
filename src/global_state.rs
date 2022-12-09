@@ -7,21 +7,21 @@ thread_local! {
     static TIME: Cell<DateTime<Local>> = Cell::new(Local::now());
 }
 
-static mut ROUTED: bool = false;
+// static mut ROUTED: bool = false;
 static mut CITY: usize  = 0;
 static mut DAYS: u8     = 3;
 static mut THEME: bool  = true;
 static mut DATA: Option<WeatherData> = None;
 
-pub fn is_routed() -> bool {
-    unsafe { ROUTED }
-}
-pub fn set_routed_true() {
-    unsafe { ROUTED = true }
-}
-pub fn set_routed_false() {
-    unsafe { ROUTED = false }
-}
+// pub fn is_routed() -> bool {
+//     unsafe { ROUTED }
+// }
+// pub fn set_routed_true() {
+//     unsafe { ROUTED = true }
+// }
+// pub fn set_routed_false() {
+//     unsafe { ROUTED = false }
+// }
 
 pub fn get_global_city() -> usize {
     unsafe { CITY }
