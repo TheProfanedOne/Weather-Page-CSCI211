@@ -35,7 +35,7 @@ function getApiURL(start, end, loc) {
     return `${apiDom}${loc}${apiModel}${apiDaily}${apiUnits}${apiTime}${apiDates}`;
 }
 
-async function getWeatherData(start, end, loc) {
+function getWeatherData(start, end, loc) {
     return fetch(getApiURL(start, end, loc), {}).then(res => res.json());
 }
 
@@ -131,7 +131,7 @@ function parseTemp(max, min) {
         avg >= 10  ? 'Cold'             :
         avg >= 0   ? 'Very Cold'        :
         avg >= -10 ? 'Extremely Cold'   :
-        avg >= -30 ? 'Dangerously Cold'
+        avg >= -70 ? 'Dangerously Cold'
                    : 'Impossibly Cold'
     );
 }
@@ -160,10 +160,22 @@ function genForecasts(city, len) {
     return forecasts;
 }
 
-function showForecast(city) {
-    const len = threeDayForecast ? 3 : 5;
-    const forecasts = genForecasts(city, len);
+function loading() {
+    const container = document.getElementById("forecast-container");
+    container.style.display = "";
+    container.style.gridTemplateColumns = "";
+    container.innerHTML = "";
 
+    const fallback = document.createElement("h1");
+
+    fallback.textContent = "Generating Data ...";
+    fallback.className   = "fallback";
+    container.appendChild(fallback);
+}
+
+function showForecast(city, isLoading) {
+    const len = threeDayForecast ? 3 : 5;
+    
     const bigImage = document.querySelector('#big-image');
     if (len === 5 && city !== 5) {
         const vertical=city===0?60:city===1?45:city===2?25:city===3?30:65;
@@ -173,11 +185,16 @@ function showForecast(city) {
     }
     bigImage.src = bigImageURLs[city];
 
+    if (isLoading) return loading();
+
     const container = document.getElementById('forecast-container');
+    container.style.display = "grid";
     container.style.gridTemplateColumns = `repeat(${len}, 1fr)`;
     container.innerHTML = "";
 
     const dayWidth = threeDayForecast ? '98%' : '99%';
+
+    const forecasts = genForecasts(city, len);
 
     for (let i = 0; i < len; i++) {
         const forecast = forecasts[i];

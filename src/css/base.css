@@ -1,12 +1,17 @@
 @charset "utf-8";
 
+:root {
+    --forecast-height: 184px;
+}
+
 /* General body styles */
 body {
     font-family: Arial, Helvetica, sans-serif; 
 }
 
 h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Futura, 'Century Gothic', AppleGothic, sans-serif;
+    font-weight: 900;
     text-align: center;
 }
 
@@ -43,8 +48,7 @@ main {
     float: left;
 }
 
-#apply {
-    margin-right: 4px;
+#refresh {
     margin-left: 4px;
 }
 
@@ -59,7 +63,7 @@ main {
 /* Forecast styles */
 #forecast-container {
     width: 100%;
-    display: grid;
+    height: var(--forecast-height);
 }
 
 .forecast {
@@ -78,6 +82,11 @@ main {
     text-align: center;
 }
 
+.fallback {
+    margin: 0;
+    line-height: var(--forecast-height);
+}
+
 /* Bottom Line Styles */
 #bottomLine::after { clear: both; }
 
@@ -93,8 +102,8 @@ main {
     margin-right: 1px;
 }
 
-#threeButton { margin-right: 2px; }
-#fiveButton  { margin-left: 2px; }
+#threeDay { margin-right: 2px; }
+#fiveDay  { margin-left: 2px; }
 
 a {
     position: absolute;

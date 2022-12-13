@@ -69,17 +69,11 @@ function showCityForm() {
     fieldset.appendChild(select);
     form.appendChild(fieldset);
 
-    const apply = document.createElement('button');
-    apply.setAttribute('id', 'apply');
-    apply.setAttribute('type', 'button');
-    apply.innerText = 'Apply';
-
     const refresh = document.createElement('button');
     refresh.setAttribute('id', 'refresh');
     refresh.setAttribute('type', 'button');
     refresh.innerText = 'Refresh';
 
     const sect = document.querySelector('#citySect');
-    sect.appendChild(apply);
     sect.appendChild(refresh);
 }
