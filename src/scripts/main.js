@@ -48,9 +48,9 @@ window.addEventListener('load', () => {
             const newDate = new Date();
             showDate(thisDate);
             showForecast(sel_city.selectedIndex, true);
-            genForecastData(newDate).then(
-                _ => sel_city.dispatchEvent(fakeEvent(evt.target))
-            );
+            genForecastData(newDate).then(_ => {
+                sel_city.dispatchEvent(fakeEvent(evt.target))
+            });
         }, { passive: true });
     
         darkToggle.addEventListener('click', evt => {
