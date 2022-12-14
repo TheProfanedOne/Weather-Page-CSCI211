@@ -1,26 +1,22 @@
 use yew::prelude::*;
 use crate::{data::get_data, global_state::*};
 use wasm_bindgen::{JsCast, UnwrapThrowExt};
-use web_sys::{FormData, HtmlFormElement};
+use web_sys::HtmlSelectElement;
 
 pub fn generate_top_line_callbacks(
     trigger: UseForceUpdateHandle
-) -> [Callback<MouseEvent>; 2] {
+) -> (Callback<Event>, Callback<MouseEvent>) {
     let app_call = {
         let trigger = trigger.clone();
 
-        Callback::from(move |_: MouseEvent| {
+        Callback::from(move |evt: Event| {
             let trigger = trigger.clone();
 
-            let document = gloo::utils::document();
-            let city_form = document.forms().named_item("city_form")
-                .expect_throw("No element named `city_form`")
-                .dyn_into::<HtmlFormElement>()
-                .expect_throw("Dynamic casting failed");
-            
-            let form_data = FormData::new_with_form(&city_form).expect_throw("FormData Failed");
-            let new_city = form_data.get("selected_city").as_string().expect_throw("FormData::get Failed")
-                .parse().expect_throw("Usize Casting Failed");
+            let new_city = evt.target()
+                .expect_throw("Could not get event target.")
+                .dyn_into::<HtmlSelectElement>()
+                .expect_throw("Could not cast to HtmlSelectElement.")
+                .selected_index() as usize;
 
             set_global_city(new_city);
             if set_global_data(get_data(new_city)) {
@@ -37,7 +33,7 @@ pub fn generate_top_line_callbacks(
         trigger.force_update();
     });
 
-    [app_call, ref_call]
+    (app_call, ref_call)
 }
 
 pub fn generate_bottom_line_callbacks(

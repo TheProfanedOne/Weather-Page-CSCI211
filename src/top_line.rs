@@ -20,17 +20,18 @@ fn f_date_str(rn: DateTime<Local>, zone: &str) -> String {
 pub struct TLProps {
     pub time: DateTime<Local>,
     pub zone: String,
-    pub app_oncl: Callback<MouseEvent>,
+    pub city: usize,
+    pub app_onch: Callback<Event>,
     pub ref_oncl: Callback<MouseEvent>,
 }
 
-#[function_component(TopLine)]
-pub fn top_line(props: &TLProps) -> Html {
-    let TLProps { time, zone, app_oncl, ref_oncl } = props.clone();
+#[function_component]
+pub fn TopLine(props: &TLProps) -> Html {
+    let TLProps { time, zone, city, app_onch: onchange, ref_oncl: onclick } = props.clone();
     let date_str = f_date_str(*time, zone);
 
     let city_options = CITY_NAMES.iter().enumerate().map(|(i, name)| html! {
-        <option value={format!("{}", i)} selected={i == 0}>{*name}</option>
+        <option value={format!("{}", i)} selected={i == *city}>{*name}</option>
     });
 
     html! {
@@ -40,13 +41,12 @@ pub fn top_line(props: &TLProps) -> Html {
                 <form id="city_form" action="" method="post">
                     <fieldset>
                         <label for="city_menu">{"City: "}</label>
-                        <select id="city_menu" name="selected_city" size="1">
+                        <select id="city_menu" name="selected_city" size="1" {onchange}>
                             { for city_options }
                         </select>
                     </fieldset>
                 </form>
-                <button type="button" onclick={app_oncl.clone()}>{"Apply"}</button>
-                <button type="button" onclick={ref_oncl.clone()}>{"Refresh"}</button>
+                <button type="button" {onclick}>{"Refresh"}</button>
             </div>
         </section>
     }

@@ -30,8 +30,7 @@ features = [
     "Node",
     "HtmlElement",
     "Event",
+    "EventTarget",
     "MouseEvent",
-    "HtmlCollection",
-    "HtmlFormElement",
-    "FormData",
+    "HtmlSelectElement",
 ]

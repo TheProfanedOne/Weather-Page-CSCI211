@@ -2,7 +2,6 @@ use yew_router::prelude::*;
 use yew::prelude::*;
 use crate::attributions::Attributions;
 use crate::forecast::Forecast;
-use stylist::yew::styled_component;
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
@@ -25,8 +24,8 @@ fn switch(routes: Route) -> Html {
     }
 }
 
-#[styled_component(App)]
-pub fn app() -> Html {
+#[function_component]
+pub fn App() -> Html {
     html! {
         <BrowserRouter>
             <Switch<Route> render={switch} />

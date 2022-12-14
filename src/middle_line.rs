@@ -20,8 +20,8 @@ struct DayProps {
     desc: String,
 }
 
-#[function_component(Day)]
-fn day(DayProps { date, summ, icon, temp, desc }: &DayProps) -> Html {
+#[function_component]
+fn Day(DayProps { date, summ, icon, temp, desc }: &DayProps) -> Html {
     html! {
         <section class={classes!("forecast")}>
             <p>{date}</p>
@@ -116,8 +116,8 @@ pub struct MLProps {
     pub data: Option<WeatherData>,
 }
 
-#[styled_component(MiddleLine)]
-pub fn middle_line(MLProps { city, len, data }: &MLProps) -> Html {
+#[styled_component]
+pub fn MiddleLine(MLProps { city, len, data }: &MLProps) -> Html {
     let (city, len, data) = (city.clone(), len.clone(), data.clone());
 
     let img_obj_pos = match len {

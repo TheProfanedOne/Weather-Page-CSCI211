@@ -7,8 +7,8 @@ pub struct BLProps {
     pub days_oncl: Callback<MouseEvent>,
 }
 
-#[function_component(BottomLine)]
-pub fn bottom_line(BLProps { days, theme_oncl, days_oncl }: &BLProps) -> Html {
+#[function_component]
+pub fn BottomLine(BLProps { days, theme_oncl, days_oncl }: &BLProps) -> Html {
     let is_disabled = *days == 3;
 
     html! {

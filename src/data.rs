@@ -2,6 +2,7 @@
 use chrono::prelude::*;
 use serde::{Deserialize, Serialize};
 use reqwest::Client;
+use wasm_bindgen::UnwrapThrowExt;
 
 static mut DATASETS: Option<Vec<WeatherData>> = None;
 
@@ -20,8 +21,8 @@ fn gen_url(start: NaiveDate, end: NaiveDate, loc: &str) -> String {
 }
 
 async fn call_api(url: String, client: Client) -> WeatherData {
-    let resp = client.get(url).send().await.expect("API Call Failed!");
-    resp.json().await.expect("JSON Conversion Failed")
+    let resp = client.get(url).send().await.expect_throw("API Call Failed!");
+    resp.json().await.expect_throw("JSON Conversion Failed")
 }
 
 pub fn get_data(city: usize) -> Option<WeatherData> {

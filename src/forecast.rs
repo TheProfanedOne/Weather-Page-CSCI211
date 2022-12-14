@@ -14,8 +14,8 @@ use stylist::yew::styled_component;
 use localzone::get_local_zone;
 use chrono_tz::{TZ_VARIANTS, OffsetName};
 
-#[styled_component(Forecast)]
-pub fn forecast() -> Html {
+#[styled_component]
+pub fn Forecast() -> Html {
     let trigger = use_force_update();
 
     let city = get_global_city();
@@ -33,7 +33,7 @@ pub fn forecast() -> Html {
 
     use_data_refresh(trigger.clone(), city, time, &data);
 
-    let [app_oncl, ref_oncl] = generate_top_line_callbacks(trigger.clone());
+    let (app_onch, ref_oncl) = generate_top_line_callbacks(trigger.clone());
 
     let [theme_oncl, days_oncl] = generate_bottom_line_callbacks(trigger.clone());
     
@@ -42,8 +42,6 @@ pub fn forecast() -> Html {
         let theme = get_global_theme();
         let color1 = if theme { "#FFFFFF" } else { "#003131" };
         let color2 = if theme { "#000000" } else { "#FFFFFF" };
-
-        let fallback_margin = 77.5;
         
         css!(
             background-color: ${color1};
@@ -53,8 +51,6 @@ pub fn forecast() -> Html {
 
             #fallback {
                 width: ${main_width}px ${"!important"};
-                margin-top: ${fallback_margin}px;
-                margin-bottom: ${fallback_margin}px;
             }
 
             .forecast { border-color: ${color2}; }
@@ -70,7 +66,7 @@ pub fn forecast() -> Html {
         <main id="weather" {class}>
             <h1>{"CSCI-211 \u{00A0}\u{2014}\u{00A0} Weather Page"}</h1>
             <div>
-                <TopLine {time} {zone} {app_oncl} {ref_oncl} />
+                <TopLine {time} {zone} {city} {app_onch} {ref_oncl} />
                 <MiddleLine {city} len={days} {data} />
                 <BottomLine {days} {theme_oncl} {days_oncl} />
             </div>

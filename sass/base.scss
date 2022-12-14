@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+$forecast-height: 184px;
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -47,15 +49,14 @@ body {
                             fieldset {
                                 border: 0;
                                 padding: 0;
-                                margin-bottom: 2px;
                                 margin-right: 0;
                             }
     
                             > * { float: left; }
 
-                            > button:first-of-type {
-                                margin-right: 4px;
+                            > button {
                                 margin-left: 4px;
+                                margin-bottom: 2px;
                             }
                         }
                     }
@@ -70,7 +71,13 @@ body {
     
                         > div {
                             width: 100%;
+                            height: $forecast-height;
                             display: grid;
+
+                            > h1 {
+                                margin: auto;
+                                line-height: $forecast-height;
+                            }
     
                             > section {
                                 -webkit-box-sizing: border-box;
