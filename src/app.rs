@@ -8,7 +8,8 @@ pub enum Route {
     #[at("/")]
     #[not_found]
     Home,
-    
+    #[at("/forecast")]
+    Forecast,
     #[at("/attributions")]
     Attributions,
 }
@@ -16,10 +17,13 @@ pub enum Route {
 fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! {
+            <Redirect<Route> to={Route::Forecast} />
+        },
+        Route::Forecast => html! {
             <Forecast />
         },
-        Route::Attributions => {
-            html!(<Attributions />)
+        Route::Attributions => html! {
+            <Attributions />
         },
     }
 }

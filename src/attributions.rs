@@ -20,7 +20,7 @@ pub fn attributions() -> Html {
         ul a { color: ${color3}; }
     ));
 
-    let home = Route::Home;
+    let home = Route::Forecast;
 
     use_title("Attributions".to_string());
 

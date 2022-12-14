@@ -947,16 +947,16 @@ function getImports() {
         const ret = wasm.memory;
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper1499 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 637, __wbg_adapter_34);
+    imports.wbg.__wbindgen_closure_wrapper1528 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 660, __wbg_adapter_34);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper1880 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 772, __wbg_adapter_37);
+    imports.wbg.__wbindgen_closure_wrapper1909 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 795, __wbg_adapter_37);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper1952 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 801, __wbg_adapter_40);
+    imports.wbg.__wbindgen_closure_wrapper1981 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 824, __wbg_adapter_40);
         return addHeapObject(ret);
     };
 
@@ -995,7 +995,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('plain-yew-weather-app-3dd8bb7d9e1e4c77_bg.wasm', import.meta.url);
+        input = new URL('plain-yew-weather-app-d91dfb4353a92e97_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
