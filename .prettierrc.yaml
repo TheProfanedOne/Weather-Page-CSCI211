@@ -1,0 +1,19 @@
+tabWidth: 4
+semi: true
+trailingComma: es5
+arrowParens: avoid
+singleQuote: true
+printWidth: 100
+overrides:
+  - files: '*.vue'
+    options:
+      vueIndentScriptAndStyle: true
+      parser: vue
+
+  - files: ['*.json', '*.jsonc']
+    options:
+      trailingComma: none
+
+  - files: ['*.yaml', '*.yml']
+    options:
+      tabWidth: 2

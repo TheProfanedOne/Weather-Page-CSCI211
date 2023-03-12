@@ -1,0 +1,7 @@
+pnpm-lock.yaml
+package-lock.json
+node_modules
+env.d.ts
+.vscode
+dist
+/.github/workflows/main.yml
