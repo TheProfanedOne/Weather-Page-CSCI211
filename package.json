@@ -1,5 +1,5 @@
 {
-    "name": "weather-page-csci211",
+    "name": "vue-weather-page",
     "version": "0.0.0",
     "private": true,
     "scripts": {
